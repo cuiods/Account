@@ -1,4 +1,4 @@
-package nju.view;
+package nju.view.buttons;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -6,6 +6,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JTextField;
 
 import nju.model.po.UserPO;
+import nju.view.Component;
 
 public class ButtonClean extends MyButton{
 

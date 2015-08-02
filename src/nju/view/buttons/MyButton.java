@@ -1,4 +1,4 @@
-package nju.view;
+package nju.view.buttons;
 
 import java.awt.Graphics;
 
@@ -11,6 +11,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
 import nju.controller.SystemController;
+import nju.view.Component;
 
 
 public class MyButton extends JLabel{

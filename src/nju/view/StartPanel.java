@@ -14,6 +14,9 @@ import nju.config.ComponentsConfig;
 import nju.config.ConfigReader;
 import nju.config.FrameConfig;
 import nju.model.UpdateMessage;
+import nju.view.buttons.ButtonClean;
+import nju.view.buttons.ButtonInfor;
+import nju.view.buttons.ButtonSignUp;
 
 public class StartPanel extends JPanel implements Observer{
 	private List<Component> components= null;
@@ -22,6 +25,7 @@ public class StartPanel extends JPanel implements Observer{
 	private JPasswordField passWord = null;
 	private ButtonSignUp signUp = null;
 	private ButtonClean clean = null;
+	private ButtonInfor infor = null;
 	
 	public StartPanel(){
 		this.setLayout(null);
@@ -33,7 +37,7 @@ public class StartPanel extends JPanel implements Observer{
 		//获得参数配置
 		List<ComponentsConfig> layersCfg = fCfg.getStartLayersConfig();
 		components  = new ArrayList<Component>(layersCfg.size());
-		for(int i=0;i<3;i++){
+		for(int i=0;i<4;i++){
 			ComponentsConfig cfg = layersCfg.get(i);
 			//调用构造函数创建对象
 			Component layer;
@@ -56,27 +60,29 @@ public class StartPanel extends JPanel implements Observer{
 		firstName = new JTextField(10);
 		lastName = new JTextField(10);
 		passWord = new JPasswordField(10);
-	
-		firstName.setBounds(layersCfg.get(3).getX(),layersCfg.get(3).getY(),
-				layersCfg.get(3).getW(),layersCfg.get(3).getH());
-		lastName.setBounds(layersCfg.get(4).getX(),layersCfg.get(4).getY(),
+	    
+		firstName.setBounds(layersCfg.get(4).getX(),layersCfg.get(4).getY(),
 				layersCfg.get(4).getW(),layersCfg.get(4).getH());
-		passWord.setBounds(layersCfg.get(5).getX(),layersCfg.get(5).getY(),
+		lastName.setBounds(layersCfg.get(5).getX(),layersCfg.get(5).getY(),
 				layersCfg.get(5).getW(),layersCfg.get(5).getH());
+		passWord.setBounds(layersCfg.get(6).getX(),layersCfg.get(6).getY(),
+				layersCfg.get(6).getW(),layersCfg.get(6).getH());
         passWord.setEchoChar('*');
 		
 		signUp = new ButtonSignUp(components.get(1));
 		clean = new ButtonClean(components.get(2));
+		infor = new ButtonInfor(components.get(3));
 		
 		add(firstName);
 		add(lastName);
 		add(passWord);
 		add(signUp);
 		add(clean);
+		add(infor);
 		
 		signUp.addMouseListener(signUp.new ButtonListener(firstName,lastName,passWord));
 		clean.addMouseListener(clean.new ButtonListener(firstName,lastName,passWord));
-		
+		infor.addMouseListener(infor.new ButtonListener(this));
 	}
 
 

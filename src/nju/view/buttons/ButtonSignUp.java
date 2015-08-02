@@ -1,4 +1,4 @@
-package nju.view;
+package nju.view.buttons;
 
 import java.awt.Graphics;
 import java.awt.event.MouseEvent;
@@ -7,6 +7,7 @@ import java.awt.event.MouseListener;
 import javax.swing.JTextField;
 
 import nju.model.po.UserPO;
+import nju.view.Component;
 
 public class ButtonSignUp extends MyButton{
 	
@@ -46,7 +47,9 @@ public class ButtonSignUp extends MyButton{
 			String pass = password.getText();
 			UserPO user = new UserPO(name, pass);
 			systemController.signUp(user);
-			
+			firstName.setText("");
+			lastName.setText("");
+			password.setText("");
 		}
 
 		@Override

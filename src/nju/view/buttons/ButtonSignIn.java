@@ -1,6 +1,8 @@
-package nju.view;
+package nju.view.buttons;
 
 import java.awt.Graphics;
+
+import nju.view.Component;
 
 public class ButtonSignIn extends MyButton {
 
