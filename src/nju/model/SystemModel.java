@@ -17,16 +17,20 @@ public class SystemModel extends BaseModel{
 	 * open method to sign up a user
 	 * @param user:UserPO
 	 */
-	public void signUp(UserPO user){
-		updateChange(new UpdateMessage("signUp", IOhelper.signUp(user)));
+	public boolean signUp(UserPO user){
+		boolean result = IOhelper.signUp(user);
+		updateChange(new UpdateMessage("signUp", result));
+		return result;
 	}
 	
 	/**
 	 * open method to sign in
 	 * @param user:UserPO
 	 */
-	public void signIn(UserPO user){
-		updateChange(new UpdateMessage("signIn", IOhelper.signIn(user)));
+	public boolean signIn(UserPO user){
+		boolean result = IOhelper.signIn(user);
+		updateChange(new UpdateMessage("signIn", result));
+		return result;
 	}
 	
 	public void checkOut(){

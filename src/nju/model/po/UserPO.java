@@ -1,6 +1,8 @@
 package nju.model.po;
 
-public class UserPO {
+import java.io.Serializable;
+
+public class UserPO implements Serializable{
 
 	private String name;
 	private String password;

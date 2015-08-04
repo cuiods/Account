@@ -1,6 +1,7 @@
 package nju.controller.operation;
 
 import nju.controller.msqueue.OperationQueue;
+import nju.model.DataModel;
 import nju.model.SystemModel;
 import nju.model.po.UserPO;
 
@@ -15,7 +16,10 @@ public class SignUpOperation extends Operation{
 	@Override
 	public void execute() {
 		SystemModel system = OperationQueue.getSystem();
-		system.signUp(user);
+		if(system.signUp(user)){
+			DataModel data = OperationQueue.getData();
+			data.setUser(user);
+		}
 	}
 
 }
