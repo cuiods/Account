@@ -1,13 +1,18 @@
 package nju.model.po;
 
+import java.io.Serializable;
 import java.util.Calendar;
 
-public class RecordPO {
+public class RecordPO implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private UserPO user;
 	private RecordKind kind;
 	private Calendar date;
-	private int amount;
+	private float amount;
 	
 	public RecordPO(UserPO user,RecordKind kind,Calendar date,int amount) {
 		this.user = user;
@@ -34,12 +39,11 @@ public class RecordPO {
 	public void setDate(Calendar date) {
 		this.date = date;
 	}
-	public int getAmount() {
+	public float getAmount() {
 		return amount;
 	}
 	public void setAmount(int amount) {
 		this.amount = amount;
 	}
-	
-	
+		
 }
