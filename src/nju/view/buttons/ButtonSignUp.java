@@ -43,6 +43,11 @@ public class ButtonSignUp extends MyButton{
 
 		@Override
 		public void mousePressed(MouseEvent arg0) {
+		
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent arg0) {
 			String name = firstName.getText()+" "+lastName.getText();
 			String pass = password.getText();
 			UserPO user = new UserPO(name, pass);
@@ -50,11 +55,6 @@ public class ButtonSignUp extends MyButton{
 			firstName.setText("");
 			lastName.setText("");
 			password.setText("");
-		}
-
-		@Override
-		public void mouseReleased(MouseEvent arg0) {
-			// TODO Auto-generated method stub
 			
 		}
 		

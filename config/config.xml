@@ -9,6 +9,8 @@
 			<component name="label1" x="380" y="240" width="300" height="40"/>
 			<component name="label2" x="380" y="320" width="300" height="40"/>
 			<component name="label3" x="380" y="420" width="300" height="40"/>
+			<component name="SIGN_IN_IMAGE" x="312" y="66" width="456" height="568"/>
+			<component name="SIGN_IN_ICON" x="590" y="500" width="159" height="70"/>
 		</startPanel>	
 	</frame>
 </account>

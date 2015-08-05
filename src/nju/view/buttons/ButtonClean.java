@@ -43,14 +43,14 @@ public class ButtonClean extends MyButton{
 
 		@Override
 		public void mousePressed(MouseEvent arg0) {
-			firstName.setText("");
-			lastName.setText("");
-			password.setText("");
+			
 		}
 
 		@Override
 		public void mouseReleased(MouseEvent arg0) {
-			// TODO Auto-generated method stub
+			firstName.setText("");
+			lastName.setText("");
+			password.setText("");
 			
 		}
 		

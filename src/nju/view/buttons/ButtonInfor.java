@@ -7,6 +7,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import nju.view.Component;
+import nju.view.StartPanel;
 
 public class ButtonInfor extends MyButton{
 
@@ -15,8 +16,8 @@ public class ButtonInfor extends MyButton{
 	}
 
 	public class ButtonListener implements MouseListener{
-		JPanel panel;
-		public ButtonListener(JPanel panel){
+		StartPanel panel;
+		public ButtonListener(StartPanel panel){
 			this.panel=panel;
 		}
 		@Override
@@ -44,7 +45,7 @@ public class ButtonInfor extends MyButton{
 
 		@Override
 		public void mouseReleased(MouseEvent arg0) {
-			// TODO Auto-generated method stub
+			panel.clearComponents(panel.getGraphics());
 			
 		}
 		

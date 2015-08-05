@@ -2,7 +2,6 @@ package nju.view;
 
 import java.awt.*;
 import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
@@ -16,6 +15,7 @@ import nju.config.FrameConfig;
 import nju.model.UpdateMessage;
 import nju.view.buttons.ButtonClean;
 import nju.view.buttons.ButtonInfor;
+import nju.view.buttons.ButtonSignIn;
 import nju.view.buttons.ButtonSignUp;
 
 public class StartPanel extends JPanel implements Observer{
@@ -26,7 +26,8 @@ public class StartPanel extends JPanel implements Observer{
 	private ButtonSignUp signUp = null;
 	private ButtonClean clean = null;
 	private ButtonInfor infor = null;
-	
+	private ButtonSignIn signIn = null;
+	private boolean isSignIn=false;
 	public StartPanel(){
 		this.setLayout(null);
 		initComponent();
@@ -37,7 +38,7 @@ public class StartPanel extends JPanel implements Observer{
 		//获得参数配置
 		List<ComponentsConfig> layersCfg = fCfg.getStartLayersConfig();
 		components  = new ArrayList<Component>(layersCfg.size());
-		for(int i=0;i<4;i++){
+		for(int i=0;i<layersCfg.size();i++){
 			ComponentsConfig cfg = layersCfg.get(i);
 			//调用构造函数创建对象
 			Component layer;
@@ -90,10 +91,11 @@ public class StartPanel extends JPanel implements Observer{
 	public void paintComponent(Graphics g){
 		FrameConfig fc = ConfigReader.getFrameConfig();
 		g.drawImage(Images.BACKGROUND_IMAGE, 0, 0, fc.getWidth(),fc.getHeight(),this);
-//		g.drawImage(Images.SIGN_UP_IMAGE,312 , 66, 456,568, this);
-		//绘制游戏界面
-	//	for(int i=0;i<components.size();components.get( i++).createComponent(g));
-		components.get(0).createComponent(g);
+        if(isSignIn==false){
+        	components.get(0).createComponent(g);
+        }else{
+        	components.get(7).createComponent(g);
+        }
 	}
 	@Override
 	public void update(Observable o, Object arg) {
@@ -113,4 +115,16 @@ public class StartPanel extends JPanel implements Observer{
 		}
 		
 	}
+	public void clearComponents(Graphics g){
+		remove(signUp);
+		remove(infor);
+		components.get(7).createComponent(g);
+		isSignIn=true;
+		signIn = new ButtonSignIn(components.get(8));
+		add(signIn);
+		signIn.addMouseListener(signIn.new ButtonListener(firstName,lastName,passWord));
+		repaint();
+	}
+	
+	
 }
