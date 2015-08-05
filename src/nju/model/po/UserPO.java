@@ -28,4 +28,14 @@ public class UserPO implements Serializable{
 		this.password = password;
 	}
 	
+	@Override
+	public boolean equals(Object o){
+		UserPO user = (UserPO) o;
+		if(this.name.equals(user.getName())){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
 }
