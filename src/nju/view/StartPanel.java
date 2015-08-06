@@ -18,7 +18,7 @@ import nju.view.buttons.ButtonInfor;
 import nju.view.buttons.ButtonSignIn;
 import nju.view.buttons.ButtonSignUp;
 
-public class StartPanel extends JPanel implements Observer{
+public class StartPanel extends JPanel{
 	private List<Component> components= null;
 	private JTextField firstName = null;
 	private JTextField lastName = null;
@@ -28,6 +28,7 @@ public class StartPanel extends JPanel implements Observer{
 	private ButtonInfor infor = null;
 	private ButtonSignIn signIn = null;
 	private boolean isSignIn=false;
+	
 	public StartPanel(){
 		this.setLayout(null);
 		initComponent();
@@ -97,24 +98,7 @@ public class StartPanel extends JPanel implements Observer{
         	components.get(7).createComponent(g);
         }
 	}
-	@Override
-	public void update(Observable o, Object arg) {
-		UpdateMessage notifingObject = (UpdateMessage)arg;
-		if(notifingObject.getKey().equals("signUp")){
-			if(arg.equals(false)){
-				
-			}else{
-				
-			}
-		}else if(notifingObject.getKey().equals("signIn")){
-			if(arg.equals(false)){
-				
-			}else{
-				
-			}
-		}
-		
-	}
+	
 	public void clearComponents(Graphics g){
 		remove(signUp);
 		remove(infor);

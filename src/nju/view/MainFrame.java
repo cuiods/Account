@@ -1,13 +1,18 @@
 package nju.view;
 
+import java.util.Observable;
+import java.util.Observer;
+
 import javax.swing.*;
 
 import nju.config.ConfigReader;
 import nju.config.FrameConfig;
+import nju.model.UpdateMessage;
 
-public class MainFrame {
+public class MainFrame implements Observer{
 	private JFrame mainFrame;
 	private StartPanel startPanel;
+	private MainPanel mainPanel;
 	
 	public MainFrame(){
 		componentsInstantiation();
@@ -15,9 +20,6 @@ public class MainFrame {
 		mainFrame.setVisible(true);
 	}
 	
-	public StartPanel getStartPanel() {
-		return startPanel;
-	}
 	
 	private void initComponents() {
 		FrameConfig fc = ConfigReader.getFrameConfig();
@@ -32,6 +34,28 @@ public class MainFrame {
 	private void componentsInstantiation() {
 		mainFrame = new JFrame("My account");
 		startPanel = new StartPanel();
+		
+	}
+
+	@Override
+	public void update(Observable o, Object arg) {
+		UpdateMessage notifingObject = (UpdateMessage)arg;
+		if(notifingObject.getKey().equals("signUp")){
+			if(arg.equals(false)){
+				
+			}else{
+				
+			}
+		}else if(notifingObject.getKey().equals("signIn")){
+			if(arg.equals(false)){
+				System.out.println("return false");
+			}else{
+				mainPanel = new MainPanel();
+				startPanel.setVisible(false);
+				mainFrame.getContentPane().add(mainPanel);
+				System.out.println("return true");
+			}
+		}
 		
 	}
 }

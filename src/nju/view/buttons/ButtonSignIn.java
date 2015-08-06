@@ -54,7 +54,7 @@ public class ButtonSignIn extends MyButton {
 			String name = firstName.getText()+" "+lastName.getText();
 			String pass = password.getText();
 			UserPO user = new UserPO(name, pass);
-			boolean success=systemController.signIn(user);
+			systemController.signIn(user);
 			firstName.setText("");
 			lastName.setText("");
 			password.setText("");

@@ -15,7 +15,7 @@ public class MyAccount {
 		DataModel dataModel = new DataModel();
 		
 		//set observers
-		systemModel.addObserver(ui.getStartPanel());
+		systemModel.addObserver(ui);
 		
 		//start operation queue thread
 		OperationQueue operationQueue = new OperationQueue(dataModel, systemModel);
