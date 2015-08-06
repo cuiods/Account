@@ -4,6 +4,11 @@ import java.util.Calendar;
 
 import nju.model.po.RecordPO;
 
+/**
+ * use it in main frame
+ * @author Cui
+ *
+ */
 public class RecordVO {
 
 	private Calendar date;

@@ -3,6 +3,11 @@ package nju.model.po;
 import java.io.Serializable;
 import java.util.Calendar;
 
+/**
+ * to describe a record
+ * @author Cui
+ *
+ */
 public class RecordPO implements Serializable{
 
 	/**

@@ -13,18 +13,32 @@ import nju.model.po.UserPO;
  */
 public class SystemController {
 	
+	/**
+	 * sign in a user
+	 * @param user
+	 * @return
+	 */
 	public boolean signIn(UserPO user){
 		Operation signIn = new SignInOperation(user);
 		OperationQueue.addOperation(signIn);
 		return true;
 	}
 
+	/**
+	 * sign up a user
+	 * @param user
+	 * @return
+	 */
 	public boolean signUp(UserPO user){
 		Operation signUp = new SignUpOperation(user);
 		OperationQueue.addOperation(signUp);
 		return true;
 	}
 	
+	/**
+	 * check out (maybe change a account)
+	 * @return
+	 */
 	public boolean checkOut(){
 		return false;
 	}

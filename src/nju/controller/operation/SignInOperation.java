@@ -5,6 +5,12 @@ import nju.model.DataModel;
 import nju.model.SystemModel;
 import nju.model.po.UserPO;
 
+/**
+ * when sign in successfully,  the boundary changes, data model will set this user 
+ * and give statistics
+ * @author Cui
+ *
+ */
 public class SignInOperation extends Operation{
 
 	UserPO user = null;

@@ -2,6 +2,11 @@ package nju.model.po;
 
 import java.io.Serializable;
 
+/**
+ * to describe a user
+ * @author Cui
+ *
+ */
 public class UserPO implements Serializable{
 
 	private String name;

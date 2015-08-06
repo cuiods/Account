@@ -1,8 +1,10 @@
 package nju.model;
 
+import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -22,23 +24,24 @@ public class DataList {
 	
 	public DataList() {
 		try {
-			reader = new ObjectInputStream(new FileInputStream(DATAPATH));
-			Object record = null;
-			while((record = reader.readObject())!=null){
-				records.add((RecordPO)record);
+			BufferedReader br = new BufferedReader(new FileReader(DATAPATH));
+			if(br.readLine()!=null){
+				br.close();
+				reader = new ObjectInputStream(new FileInputStream(DATAPATH));
+				Object record = null;
+				while((record = reader.readObject())!=null){
+					records.add((RecordPO)record);
+				}
+				reader.close();
+			}else{
+				br.close();
 			}
 		} catch (FileNotFoundException e) {
 			System.out.println("Error: can't find data file");
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
-		} finally {
-			try {
-				reader.close();
-			} catch (Exception e2) {
-				e2.printStackTrace();
-			}
-		}
+		} 
 	}
 	
 	public boolean saveData(){
@@ -78,9 +81,9 @@ public class DataList {
 					recordView.addExpense(amount); 
 				}
 				switch(record.getKind()){
-				case TRANSPORTATION:recordView.addTransportation(amount);break;
-				case CATERING:recordView.addCatering(amount);break;
-				case ENTERTAINMENT:recordView.addTransportation(amount);break;
+				case TRANSPORTATION:recordView.addTransportation(-amount);break;
+				case CATERING:recordView.addCatering(-amount);break;
+				case ENTERTAINMENT:recordView.addTransportation(-amount);break;
 				case TRANSFERACOUNTS:recordView.addTransferaccounts(amount);break;
 				case WAGE:recordView.addWage(amount);
 				}
