@@ -41,13 +41,13 @@ public class MainFrame implements Observer{
 	public void update(Observable o, Object arg) {
 		UpdateMessage notifingObject = (UpdateMessage)arg;
 		if(notifingObject.getKey().equals("signUp")){
-			if(arg.equals(false)){
+			if(notifingObject.getValue().equals(false)){
 				
 			}else{
 				
 			}
 		}else if(notifingObject.getKey().equals("signIn")){
-			if(arg.equals(false)){
+			if(notifingObject.getValue().equals(false)){
 				System.out.println("return false");
 			}else{
 				mainPanel = new MainPanel();
