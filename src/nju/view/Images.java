@@ -21,11 +21,8 @@ public class Images {
 		return null;
 	}
 	public static final Image BACKGROUND_IMAGE = createImage("Images/background.png");
-	
-//	public static final Image SIGN_UP_IMAGE = createImage("Images/signUp0.png");
-//	public static final ImageIcon SIGN_UP_ICON = createImageIcon("Images/signUp.png");
-//	public static final ImageIcon SIGN_UP_ICON1 = createImageIcon("Images/signUp1.png");
-//	public static final ImageIcon CLEAN_ICON = createImageIcon("Images/clean.png");
-//	public static final ImageIcon CLEAN_ICON1 = createImageIcon("Images/clean1.png");
+	public static final Image BASE_IMAGE = createImage("Images/base.png");
+	public static final Image BASE1_IMAGE = createImage("Images/base1.png");
+
 	
 }

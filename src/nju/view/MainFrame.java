@@ -34,9 +34,11 @@ public class MainFrame implements Observer{
 	private void componentsInstantiation() {
 		mainFrame = new JFrame("My account");
 		startPanel = new StartPanel();
-		
+		mainPanel = new MainPanel();
 	}
-
+    public MainPanel getMainPanel(){
+    	return mainPanel;
+    }
 	@Override
 	public void update(Observable o, Object arg) {
 		UpdateMessage notifingObject = (UpdateMessage)arg;
@@ -50,7 +52,6 @@ public class MainFrame implements Observer{
 			if(notifingObject.getValue().equals(false)){
 				System.out.println("return false");
 			}else{
-				mainPanel = new MainPanel();
 				startPanel.setVisible(false);
 				mainFrame.getContentPane().add(mainPanel);
 				System.out.println("return true");

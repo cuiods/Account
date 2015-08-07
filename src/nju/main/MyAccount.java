@@ -1,5 +1,7 @@
 package nju.main;
 
+
+
 import nju.controller.msqueue.OperationQueue;
 import nju.model.*;
 import nju.view.MainFrame;
@@ -16,6 +18,7 @@ public class MyAccount {
 		
 		//set observers
 		systemModel.addObserver(ui);
+		dataModel.addObserver(ui.getMainPanel());
 		
 		//start operation queue thread
 		OperationQueue operationQueue = new OperationQueue(dataModel, systemModel);

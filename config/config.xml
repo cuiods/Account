@@ -14,14 +14,13 @@
 		</startPanel>	
 		<mainPanel>
 			<component name="draw1" x="55" y="17" width="975" height="665"/>
-			<component name="expense" x="110" y="50" width="62" height="31"/>
-			<component name="pay" x="110" y="370" width="62" height="31"/>
-			<component name="entertain" x="110" y="91" width="95" height="42"/>
-			<component name="food" x="110" y="143" width="95" height="42"/>
-			<component name="transport" x="110" y="195" width="95" height="42"/>
-			<component name="parent" x="110" y="411" width="95" height="42"/>
-			<component name="wage" x="110" y="463" width="95" height="42"/>
-			
+			<component name="expense" x="110" y="150" width="62" height="31"/>
+			<component name="pay" x="540" y="150" width="62" height="31"/>
+			<component name="entertain" x="110" y="191" width="95" height="42"/>
+			<component name="food" x="110" y="243" width="95" height="42"/>
+			<component name="transport" x="110" y="295" width="95" height="42"/>
+			<component name="parent" x="540" y="191" width="95" height="42"/>
+			<component name="wage" x="540" y="243" width="95" height="42"/>
 		</mainPanel>
 	</frame>
 </account>
