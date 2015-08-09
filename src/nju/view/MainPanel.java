@@ -38,6 +38,7 @@ public class MainPanel extends JPanel implements Observer{
 	public void paintComponent(Graphics g){
 		
 		g.drawImage(Images.BACKGROUND_IMAGE, 0, 0, fc.getWidth(),fc.getHeight(),this);
+		g.drawImage(Images.BACK_IMAGE, 0, 0, fc.getWidth(),fc.getHeight(),this);
 		for(Component c:components){
 			c.createComponent(g);
 		}

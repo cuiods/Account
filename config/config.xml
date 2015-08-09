@@ -21,6 +21,7 @@
 			<component name="transport" x="110" y="295" width="95" height="42"/>
 			<component name="parent" x="540" y="191" width="95" height="42"/>
 			<component name="wage" x="540" y="243" width="95" height="42"/>
+			<component name="base_button" x="499" y="480" width="82" height="82"/>
 		</mainPanel>
 	</frame>
 </account>
