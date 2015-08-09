@@ -19,7 +19,7 @@ public class RecordPO implements Serializable{
 	private Calendar date;
 	private float amount;
 	
-	public RecordPO(UserPO user,RecordKind kind,Calendar date,int amount) {
+	public RecordPO(UserPO user,RecordKind kind,Calendar date,float amount) {
 		this.user = user;
 		this.kind = kind;
 		this.date = date;

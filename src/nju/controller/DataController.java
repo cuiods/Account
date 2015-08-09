@@ -1,7 +1,12 @@
 package nju.controller;
 
+import java.util.Calendar;
+
+import nju.controller.msqueue.OperationQueue;
 import nju.controller.operation.Operation;
 import nju.controller.operation.addRecordOperation;
+import nju.controller.operation.searchRecordOperation;
+import nju.model.po.RecordKind;
 import nju.model.po.RecordPO;
 
 /**
@@ -16,9 +21,25 @@ public class DataController {
 	 * @param record
 	 * @return
 	 */
-	public boolean addRecord(RecordPO record){
+	public boolean addRecord(RecordKind kind, float num){
+		Calendar date = Calendar.getInstance();
+		RecordPO record = new RecordPO(OperationQueue.getData().getUser(), kind, date, num);
 		Operation op = new addRecordOperation(record);
 		op.execute();
 		return true;
 	}
+	
+	/**
+	 * search a record statistic
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public boolean searchRecord(int year,int month){
+		Operation op = new searchRecordOperation(year, month);
+		op.execute();
+		return true;
+	}
+	
+	
 }

@@ -28,6 +28,10 @@ public class DataModel extends BaseModel{
 		statistic();
 	}
 	
+	public UserPO getUser(){
+		return user;
+	}
+	
 	/**
 	 * give main frame the data
 	 * @return
@@ -47,6 +51,18 @@ public class DataModel extends BaseModel{
 	 */
 	public boolean addRecord(RecordPO record){
 		datalist.addRecord(record);
+		datalist.saveData();
 		return statistic();
+	}
+	
+	/**
+	 * search a record
+	 * @param year
+	 * @param month
+	 * @return
+	 */
+	public boolean searchRecord(int year,int month){
+		this.updateChange(new UpdateMessage("search", datalist.startStatistic(year, month, user)));
+		return true;
 	}
 }
