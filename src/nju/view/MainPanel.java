@@ -11,6 +11,7 @@ import nju.config.ComponentsConfig;
 import nju.config.ConfigReader;
 import nju.config.FrameConfig;
 import nju.model.vo.RecordVO;
+import nju.view.buttons.*;
 
 public class MainPanel extends JPanel implements Observer{
 	private List<Component> components;
@@ -22,7 +23,9 @@ public class MainPanel extends JPanel implements Observer{
 	private int  entertain;
 	private int parent;
 	private int wage;
-
+    private ButtonAdd addButton;
+    private ButtonDelete deleteButton;
+    
 	public MainPanel(){
 		this.setLayout(null);
 		initComponent();
@@ -33,13 +36,23 @@ public class MainPanel extends JPanel implements Observer{
 		//获得参数配置
 		List<ComponentsConfig>layersCfg = fc.getMainLayersConfig();
 		components = ConfigHelper.createComponents(layersCfg);
+		
+		addButton = new ButtonAdd(components.get(8));
+		deleteButton = new ButtonDelete(components.get(9));
+		
+		this.add(addButton);
+		this.add(deleteButton);
+		
+		addButton.addMouseListener(addButton.new ButtonListener());
+		deleteButton.addMouseListener(deleteButton.new ButtonListener());
 	}
 
 	public void paintComponent(Graphics g){
 		
 		g.drawImage(Images.BACKGROUND_IMAGE, 0, 0, fc.getWidth(),fc.getHeight(),this);
 		g.drawImage(Images.BACK_IMAGE, 0, 0, fc.getWidth(),fc.getHeight(),this);
-		for(Component c:components){
+		for(int i=0;i<8;i++){
+			Component c = components.get(i);
 			c.createComponent(g);
 		}
 		g.drawImage(Images.BASE_IMAGE, 210, 206, entertain, 17, this);

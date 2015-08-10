@@ -14,7 +14,7 @@ import nju.controller.SystemController;
 import nju.view.Component;
 
 
-public class MyButton extends JLabel{
+public class MyButton extends JLabel {
 	protected ImageIcon image;
 	protected Component component;
 	protected boolean isIn;
@@ -36,4 +36,40 @@ public class MyButton extends JLabel{
     	}
     	component.createComponent(g);
 	}
+	public class ButtonListener implements MouseListener{
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			isIn = true;
+		    repaint();
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			isIn = false;
+			repaint();
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
 }
