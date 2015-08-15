@@ -33,7 +33,7 @@ public class DataModel extends BaseModel{
 	}
 	
 	/**
-	 * give main frame the data
+	 * give main frame the data 
 	 * @return
 	 */
 	private boolean statistic(){

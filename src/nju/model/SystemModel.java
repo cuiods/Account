@@ -1,5 +1,6 @@
 package nju.model;
 
+import nju.controller.msqueue.OperationQueue;
 import nju.model.po.UserPO;
 
 /**
@@ -33,7 +34,12 @@ public class SystemModel extends BaseModel{
 		return result;
 	}
 	
+	/**
+	 * warning
+	 */
 	public void checkOut(){
-		
+		DataModel data = OperationQueue.getData();
+		data.setUser(null);
+		updateChange(new UpdateMessage("checkout", true));
 	}
 }
