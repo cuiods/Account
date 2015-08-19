@@ -24,5 +24,7 @@ public class Images {
 	public static final Image BASE_IMAGE = createImage("Images/base.png");
 	public static final Image BASE1_IMAGE = createImage("Images/base1.png");
     public static final Image BACK_IMAGE = createImage("Images/3127.png");
-	
+	public static final Image ADD_IMAGE = createImage("Images/ADD_PANEL.png");
+	public static final Image AMOUNT_IMAGE = createImage("Images/amount.png");
+	public static final Image KIND_IMAGE = createImage("Images/kind.png");
 }

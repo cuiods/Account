@@ -7,8 +7,8 @@ import java.util.List;
 import org.dom4j.Element;
 
 public class FrameConfig {
-	private List<ComponentsConfig> startComponentsConfig;
-	private List<ComponentsConfig> mainComponentsConfig;
+	private List<ComponentsConfig> ComponentsConfig;
+;
 	private Element frame;
 	
 	/**
@@ -35,10 +35,10 @@ public class FrameConfig {
 		
 		
 	}
-	public List<ComponentsConfig> getStartLayersConfig() {
-		Element panel = frame.element("startPanel");
+	public List<ComponentsConfig> getLayersConfig(String elementName) {
+		Element panel = frame.element(elementName);
 		List<Element> components = panel.elements("component");
-		startComponentsConfig =new ArrayList<ComponentsConfig>(components.size());
+		ComponentsConfig =new ArrayList<ComponentsConfig>(components.size());
 		for(Element layer:components){
 			ComponentsConfig lc = new ComponentsConfig(
 					layer.attributeValue("name"), 
@@ -46,24 +46,9 @@ public class FrameConfig {
 					Integer.parseInt(layer.attributeValue("y")), 
 					Integer.parseInt(layer.attributeValue("width")), 
 					Integer.parseInt(layer.attributeValue("height")));
-			startComponentsConfig.add(lc);
+			ComponentsConfig.add(lc);
 		}
-		return startComponentsConfig;
+		return ComponentsConfig;
 	}
 	
-	public List<ComponentsConfig> getMainLayersConfig() {
-		Element panel = frame.element("mainPanel");
-		List<Element> components = panel.elements("component");
-		mainComponentsConfig =new ArrayList<ComponentsConfig>(components.size());
-		for(Element layer:components){
-			ComponentsConfig lc = new ComponentsConfig(
-					layer.attributeValue("name"), 
-					Integer.parseInt(layer.attributeValue("x")), 
-					Integer.parseInt(layer.attributeValue("y")), 
-					Integer.parseInt(layer.attributeValue("width")), 
-					Integer.parseInt(layer.attributeValue("height")));
-			mainComponentsConfig.add(lc);
-		}
-		return mainComponentsConfig;
-	}
 }

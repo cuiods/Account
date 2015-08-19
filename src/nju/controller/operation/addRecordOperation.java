@@ -22,6 +22,7 @@ public class addRecordOperation extends Operation{
 	public void execute() {
 		DataModel data = OperationQueue.getData();
 		data.addRecord(record);
+		System.out.println("Add a reord !!!");
 	}
 
 }

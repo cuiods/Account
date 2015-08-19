@@ -31,10 +31,9 @@ public class MainPanel extends JPanel implements Observer{
 		initComponent();
 	}
 	public void initComponent(){
-		 //获得游戏配置
-		fc= ConfigReader.getFrameConfig();
 		//获得参数配置
-		List<ComponentsConfig>layersCfg = fc.getMainLayersConfig();
+		fc= ConfigReader.getFrameConfig();
+		List<ComponentsConfig>layersCfg = fc.getLayersConfig("mainPanel");
 		components = ConfigHelper.createComponents(layersCfg);
 		
 		addButton = new ButtonAdd(components.get(8));
@@ -43,7 +42,7 @@ public class MainPanel extends JPanel implements Observer{
 		this.add(addButton);
 		this.add(deleteButton);
 		
-		addButton.addMouseListener(addButton.new ButtonListener());
+		addButton.addMouseListener(addButton.new ButtonListener(this));
 		deleteButton.addMouseListener(deleteButton.new ButtonListener());
 	}
 
@@ -74,6 +73,7 @@ public class MainPanel extends JPanel implements Observer{
 				parent = (int)(record.getTransferaccounts()*300/income);
 				wage = (int)(record.getWage()*300/income);
 			}
+			repaint();
 		}
 		
 	}

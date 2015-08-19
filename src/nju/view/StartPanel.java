@@ -35,13 +35,12 @@ public class StartPanel extends JPanel{
 		initComponent();
 	}
 	public void initComponent(){
-		 //获得游戏配置
-		fc= ConfigReader.getFrameConfig();
 		//获得参数配置
-		List<ComponentsConfig>layersCfg = fc.getStartLayersConfig();
+		fc= ConfigReader.getFrameConfig();
+		List<ComponentsConfig>layersCfg = fc.getLayersConfig("startPanel");
 		components = ConfigHelper.createComponents(layersCfg);
 		
-        //初始化组件
+        
 		firstName = new JTextField(10);
 		lastName = new JTextField(10);
 		passWord = new JPasswordField(10);

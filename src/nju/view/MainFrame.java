@@ -26,7 +26,7 @@ public class MainFrame implements Observer{
 		java.awt.Dimension screenSize = java.awt.Toolkit.getDefaultToolkit()
 				.getScreenSize();
 		mainFrame.setSize(fc.getWidth(), fc.getHeight());
-		mainFrame.setLocation((screenSize.width - fc.getWidth()) / 2,screenSize.height-fc.getHeight()/2-400);
+		mainFrame.setLocation((screenSize.width - fc.getWidth()) / 2,(screenSize.height-fc.getHeight())/2);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		mainFrame.setResizable(false);
 		mainFrame.getContentPane().add(startPanel);

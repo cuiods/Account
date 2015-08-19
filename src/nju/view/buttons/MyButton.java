@@ -10,6 +10,7 @@ import java.awt.event.MouseListener;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
 
+import nju.controller.DataController;
 import nju.controller.SystemController;
 import nju.view.Component;
 
@@ -19,8 +20,11 @@ public class MyButton extends JLabel {
 	protected Component component;
 	protected boolean isIn;
 	protected SystemController systemController;
+	protected DataController dataController;
+	
 	public MyButton(Component c){
 		systemController = new SystemController();
+		dataController = new DataController();
 		this.component = c;
 		this.setBounds(c.getX(), c.getY(), c.getWidth(), c.getHeight());
 		component.setX(0);

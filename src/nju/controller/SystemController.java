@@ -36,7 +36,7 @@ public class SystemController {
 	}
 	
 	/**
-	 * check out (maybe change a account)
+	 * check out (maybe change an account)
 	 * @return
 	 */
 	public boolean checkOut(){
