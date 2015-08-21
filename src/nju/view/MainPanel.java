@@ -10,6 +10,7 @@ import javax.swing.JPanel;
 import nju.config.ComponentsConfig;
 import nju.config.ConfigReader;
 import nju.config.FrameConfig;
+import nju.model.UpdateMessage;
 import nju.model.vo.RecordVO;
 import nju.view.buttons.*;
 
@@ -54,16 +55,17 @@ public class MainPanel extends JPanel implements Observer{
 			Component c = components.get(i);
 			c.createComponent(g);
 		}
-		g.drawImage(Images.BASE_IMAGE, 210, 206, entertain, 17, this);
-		g.drawImage(Images.BASE_IMAGE, 210, 258, catering, 17, this);
+		g.drawImage(Images.BASE_IMAGE, 210, 206, entertain,17, this);
+		g.drawImage(Images.BASE_IMAGE, 210, 258, catering,17, this);
 		g.drawImage(Images.BASE_IMAGE, 210, 310, transport, 17, this);
 		g.drawImage(Images.BASE1_IMAGE, 640, 206, parent, 17, this);
 		g.drawImage(Images.BASE1_IMAGE, 640, 258, wage, 17, this);
 	}
 	@Override
 	public void update(Observable arg0, Object arg1) {
-		if(arg0.equals("statistic")){
-			RecordVO record =(RecordVO) arg1;
+		UpdateMessage updateMessage = (UpdateMessage) arg1;
+		if(updateMessage.getKey().equals("statistic")){
+			RecordVO record =(RecordVO) (updateMessage.getValue()) ;
 			income = record.getIncome();
 			expense = record.getExpense();
 			if(expense!=0&&income!=0){
