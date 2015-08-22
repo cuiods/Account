@@ -23,15 +23,12 @@ import nju.view.MainPanel;
 public class ButtonAdd extends MyButton{
 	private List<Component> components;
 	private AddPanel addPanel;
-	private JTextField amountField;
-	private JComboBox kindBox;
+	
 	public ButtonAdd(Component c) {
 		super(c);
 		// TODO Auto-generated constructor stub
 	}
     public class ButtonListener extends MyButton.ButtonListener{
-    	
-    	private String[] kinds ={"娱乐","交通","饮食","汇款","工资"};
         private MainPanel mainPanel;
         
         public ButtonListener(MainPanel mainPanel){
@@ -41,14 +38,7 @@ public class ButtonAdd extends MyButton{
     		components = ConfigHelper.createComponents(layersCfg);
     		
         	this.mainPanel = mainPanel;
-        	kindBox = new JComboBox(kinds);
-        	amountField = new JTextField();
         	addPanel = new AddPanel();
-        	
-        	kindBox.setSelectedIndex(0);
-        	
-        	addPanel.add(kindBox);
-        	addPanel.add(amountField);
         	
         	setBounds();
         	
@@ -64,8 +54,6 @@ public class ButtonAdd extends MyButton{
     		int y = components.get(0).getY();
     		
     		addPanel.setBounds(x,y,w,h);
-            kindBox.setBounds(100,45,60,20);
-            amountField.setBounds(100,125,60,20);
         }
 
 		@Override
@@ -87,8 +75,20 @@ public class ButtonAdd extends MyButton{
     
      class AddPanel extends JPanel implements MouseListener{
     	private ButtonConfirm confirmButton;
+    	private JTextField amountField;
+    	private JComboBox kindBox;
+    	private String[] kinds ={"娱乐","交通","饮食","汇款","工资"};
     	
     	public AddPanel(){
+    		kindBox = new JComboBox(kinds);
+        	amountField = new JTextField();
+        	kindBox.setSelectedIndex(0);
+        	this.add(kindBox);
+        	this.add(amountField);
+        	
+        	kindBox.setBounds(100,45,60,20);
+            amountField.setBounds(100,125,60,20);
+        	
     		confirmButton = new ButtonConfirm(components.get(1));
     	    this.add(confirmButton);
     	    nju.view.buttons.ButtonConfirm.ButtonListener listener = confirmButton.new ButtonListener(amountField,kindBox,this);
@@ -108,11 +108,11 @@ public class ButtonAdd extends MyButton{
 
 		@Override
 		public void mouseEntered(MouseEvent e) {
-			addPanel.setVisible(true);
 		}
 
 		@Override
 		public void mouseExited(MouseEvent e) {
+			this.setVisible(false);
 		}
 
 		@Override

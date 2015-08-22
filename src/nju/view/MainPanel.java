@@ -1,6 +1,7 @@
 package nju.view;
 
 import java.awt.Graphics;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
@@ -26,8 +27,18 @@ public class MainPanel extends JPanel implements Observer{
 	private int wage;
     private ButtonAdd addButton;
     private ButtonDelete deleteButton;
+    private int[] expenseLen;
+    private int[] incomeLen;
+    
+    public static final int EXPENSE_X=210;
+    public static final int INCOME_X=640;
+    public static final int KIND_Y=206;
+    public static final int KIND_D=52;
     
 	public MainPanel(){
+		//warning !! not safe !!
+		expenseLen = new int[3];
+		incomeLen = new int[2];
 		this.setLayout(null);
 		initComponent();
 	}
@@ -55,11 +66,22 @@ public class MainPanel extends JPanel implements Observer{
 			Component c = components.get(i);
 			c.createComponent(g);
 		}
-		g.drawImage(Images.BASE_IMAGE, 210, 206, entertain,17, this);
-		g.drawImage(Images.BASE_IMAGE, 210, 258, catering,17, this);
-		g.drawImage(Images.BASE_IMAGE, 210, 310, transport, 17, this);
-		g.drawImage(Images.BASE1_IMAGE, 640, 206, parent, 17, this);
-		g.drawImage(Images.BASE1_IMAGE, 640, 258, wage, 17, this);
+		
+		for(int i=0;i<expenseLen.length;i++){
+			g.drawImage(Images.BASE_01, EXPENSE_X, KIND_Y+KIND_D*i, 20,17, this);
+			g.drawImage(Images.BASE_03, EXPENSE_X+expenseLen[i]+20, KIND_Y+KIND_D*i, 20,17, this);
+			g.drawImage(Images.BASE_02, EXPENSE_X+20, KIND_Y+KIND_D*i, expenseLen[i],17, this);
+		}
+		for(int i=0;i<incomeLen.length;i++){
+			g.drawImage(Images.BASE1_01, INCOME_X, KIND_Y+KIND_D*i, 20,17, this);
+			g.drawImage(Images.BASE1_03, INCOME_X+incomeLen[i]+20, KIND_Y+KIND_D*i, 20,17, this);
+			g.drawImage(Images.BASE1_02, INCOME_X+20, KIND_Y+KIND_D*i, incomeLen[i],17, this);
+		}
+		
+//		g.drawImage(Images.BASE_IMAGE, 210, 258, catering,17, this);
+//		g.drawImage(Images.BASE_IMAGE, 210, 310, transport, 17, this);
+//		g.drawImage(Images.BASE1_IMAGE, 640, 206, parent, 17, this);
+//		g.drawImage(Images.BASE1_IMAGE, 640, 258, wage, 17, this);
 	}
 	@Override
 	public void update(Observable arg0, Object arg1) {
@@ -69,11 +91,11 @@ public class MainPanel extends JPanel implements Observer{
 			income = record.getIncome();
 			expense = record.getExpense();
 			if(expense!=0&&income!=0){
-				transport = (int)(record.getTransportation()*300/expense);
-				catering = (int)(record.getCatering()*300/expense);
-				entertain = (int)(record.getEntertainment()*300/expense);
-				parent = (int)(record.getTransferaccounts()*300/income);
-				wage = (int)(record.getWage()*300/income);
+				expenseLen[0] = -(int)(record.getEntertainment()*300/expense);
+				expenseLen[1] = -(int)(record.getCatering()*300/expense);
+				expenseLen[2] = -(int)(record.getTransportation()*300/expense);
+				incomeLen[0] = (int)(record.getTransferaccounts()*300/income);
+				incomeLen[1] = (int)(record.getWage()*300/income);
 			}
 			repaint();
 		}
