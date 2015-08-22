@@ -60,6 +60,7 @@ public class MainPanel extends JPanel implements Observer{
 		g.drawImage(Images.BASE_IMAGE, 210, 310, transport, 17, this);
 		g.drawImage(Images.BASE1_IMAGE, 640, 206, parent, 17, this);
 		g.drawImage(Images.BASE1_IMAGE, 640, 258, wage, 17, this);
+		System.out.println(catering+" "+transport );
 	}
 	@Override
 	public void update(Observable arg0, Object arg1) {

@@ -65,4 +65,14 @@ public class DataModel extends BaseModel{
 		this.updateChange(new UpdateMessage("search", datalist.startStatistic(year, month, user)));
 		return true;
 	}
+	
+	/**
+	 * delete all the records
+	 * @return
+	 */
+	public boolean deleteRecord(){
+		datalist.deleteRecords();
+		this.updateChange(new UpdateMessage("delete", true));
+		return true;
+	}
 }

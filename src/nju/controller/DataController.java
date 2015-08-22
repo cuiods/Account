@@ -5,6 +5,7 @@ import java.util.Calendar;
 import nju.controller.msqueue.OperationQueue;
 import nju.controller.operation.Operation;
 import nju.controller.operation.addRecordOperation;
+import nju.controller.operation.deleteOperation;
 import nju.controller.operation.searchRecordOperation;
 import nju.model.po.RecordKind;
 import nju.model.po.RecordPO;
@@ -37,6 +38,15 @@ public class DataController {
 	 */
 	public boolean searchRecord(int year,int month){
 		Operation op = new searchRecordOperation(year, month);
+		op.execute();
+		return true;
+	}
+	
+	/**
+	 * delete all the records
+	 */
+	public boolean deleteRecord(){
+		Operation op = new deleteOperation();
 		op.execute();
 		return true;
 	}
