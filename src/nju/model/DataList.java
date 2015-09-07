@@ -91,6 +91,14 @@ public class DataList {
 		return recordView;
 	}
 	
+	public void deleteRecords(){
+		int num = records.size();
+		for(int i = 0; i < num; i++){
+			records.remove(0);
+		}
+		saveData();
+	}
+	
 	public ArrayList<RecordPO> getRecords(){
 		return records;
 	}

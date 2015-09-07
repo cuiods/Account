@@ -66,6 +66,7 @@ public class MainPanel extends JPanel implements Observer{
 			Component c = components.get(i);
 			c.createComponent(g);
 		}
+<<<<<<< HEAD
 		
 		for(int i=0;i<expenseLen.length;i++){
 			g.drawImage(Images.BASE_01, EXPENSE_X, KIND_Y+KIND_D*i, 20,17, this);
@@ -82,6 +83,14 @@ public class MainPanel extends JPanel implements Observer{
 //		g.drawImage(Images.BASE_IMAGE, 210, 310, transport, 17, this);
 //		g.drawImage(Images.BASE1_IMAGE, 640, 206, parent, 17, this);
 //		g.drawImage(Images.BASE1_IMAGE, 640, 258, wage, 17, this);
+=======
+		g.drawImage(Images.BASE_IMAGE, 210, 206, entertain,17, this);
+		g.drawImage(Images.BASE_IMAGE, 210, 258, catering,17, this);
+		g.drawImage(Images.BASE_IMAGE, 210, 310, transport, 17, this);
+		g.drawImage(Images.BASE1_IMAGE, 640, 206, parent, 17, this);
+		g.drawImage(Images.BASE1_IMAGE, 640, 258, wage, 17, this);
+		System.out.println(catering+" "+transport );
+>>>>>>> origin/master
 	}
 	@Override
 	public void update(Observable arg0, Object arg1) {

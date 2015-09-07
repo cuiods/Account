@@ -16,6 +16,7 @@ public class MusicThread extends Thread{
 
 	private String fileName;
 	private boolean isContinous;
+	private boolean isStop;
 	
 	public MusicThread(String fileName, boolean isContinous) {
 		this.fileName = fileName;
@@ -27,8 +28,11 @@ public class MusicThread extends Thread{
 	}
 	
 	private void play(){
-		while(isContinous){
+		do{
 			try {
+				if(isStop){
+					break;
+				}
 				AudioInputStream ais = AudioSystem.getAudioInputStream(new File(fileName));
 				AudioFormat format = ais.getFormat();
 				
@@ -43,7 +47,7 @@ public class MusicThread extends Thread{
 					if (count > 0) {
 						sourceDataLine.write(tempBuffer, 0, count);
 					}
-					if(isContinous){
+					if(isStop){
 						break;
 					}
 				}
@@ -58,11 +62,11 @@ public class MusicThread extends Thread{
 			} catch (LineUnavailableException e) {
 				e.printStackTrace();
 			}
-		}
+		}while(isContinous);
 	}
 	
 	public void stopMusic(){
-		isContinous = false;
+		isStop = true;
 	}
 
 }
